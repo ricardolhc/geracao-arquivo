@@ -47,7 +47,11 @@ public class Entrevistado {
      * @param linha <i>String</i> que identifica, em uma unica linha, os dados das respostas dos entrevistados.
      */
     public Entrevistado(String linha) {
-        String[] dadoSeparado = separarDado(linha);
+        String[] dadoSeparado = new String[6];
+
+        for(int i = 0; i < dadoSeparado.length; i++) {
+            dadoSeparado = linha.split(", ");
+        }
  
         this.sexo = dadoSeparado[0];
         this.faixaEtaria = dadoSeparado[1];
@@ -56,20 +60,6 @@ public class Entrevistado {
         this.tecnologia = dadoSeparado[4];
         this.area = dadoSeparado[5];
     } // fim do construtor Entrevistado
-
-    
-    /** 
-     * @param dados <i>String</i> que identifica, em uma unica linha, os dados das respostas dos entrevistados.
-     * @return <i>String[]</i> que contem os dados separados.
-     */
-    public String[] separarDado(String dados) {
-        String[] dadoSeparado = new String[6];
-        for(int i = 0; i < dadoSeparado.length; i++) {
-            dadoSeparado = dados.split(", ");
-        }
-        return dadoSeparado;
-    } // fim do método separarDado
-
 
     /** 
      * @return <i>String</i> que contem a faixa etaria do entrevistado.

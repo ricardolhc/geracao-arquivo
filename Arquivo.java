@@ -142,48 +142,4 @@ public class Arquivo {
 		return linhas;
     } // fim do método getLinhas
 
-	
-	/** 
-	 * @param nomeLeitura <i>String</i> que contem o nome de leitura do arquivo.
-	 * @return <i>int</i> que identifica o tamanho total do arquivo.
-	 */
-	public int pegarTamanho(String nomeLeitura) {
-		int tamanho = 0;
-		try{
-			tamanho = getTamanho(nomeLeitura);
-	    } catch (Exception e) {
-		    System.err.println(e.getMessage());
-	    }
-		return tamanho;
-	} // fim do método pegarTamanho
-
-	
-	/** 
-	 * @param conteudo <i>String</i> que contem o conteudo para ser gravado.
-	 * @param nomeGravacao <i>String</i> que contem o nome do arquivo que será gerado.
-	 */
-	public void gravarTexto(String conteudo, String nomeGravacao) {
-		try {
-			gravar(conteudo, nomeGravacao);
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-		}
-	} // fim do método gravarTexto
-
-	
-	/** 
-	 * @param nomeLeitura <i>String</i> que contem o nome de leitura do arquivo.
-	 * @param tamanho <i>int</i> que indentifica o tamanho total do arquivo.
-	 * @return <i>String[]</i> que identifica, em cada linha, as informacoes respondidas por cada entrevistado.
-	 */
-	public String[] lerArquivo(String nomeLeitura, int tamanho) {
-		String[] linha = new String[tamanho];
-		try{
-			linha = getLinhas(nomeLeitura);
-	    } catch (Exception e) {
-		    System.err.println(e.getMessage());
-	    }
-		return linha;
-	} // fim do método lerArquivo
-
 } // fim da classe Arquivo

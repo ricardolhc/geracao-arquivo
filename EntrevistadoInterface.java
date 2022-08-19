@@ -18,7 +18,7 @@ public class EntrevistadoInterface {
      * @return <i>String</i> que contem o relatorio com as estatisticas solicitadas.
      */
     public String getRelatorio(Arquivo arquivo) {
-        entrevistadoVetor = new EntrevistadoVetor(arquivo, arquivo.getNomeLeitura());
+        entrevistadoVetor = new EntrevistadoVetor(arquivo);
         String conteudoParaRelatorio = "";
 
         //final String[] REGIAO = {"Região Cidade Alta/Aguateiros", "Região Extremo Oeste", "Região Norte", "Região Sul",

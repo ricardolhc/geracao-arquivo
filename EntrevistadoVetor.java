@@ -25,12 +25,25 @@ public class EntrevistadoVetor {
      * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
      * @param nomeLeituraArquivo <i>String</i> que identifica o nome do arquivo para ser lido.
      */
-    public EntrevistadoVetor(Arquivo arquivo, String nomeLeituraArquivo) {
-        entrevistado = new Entrevistado[arquivo.pegarTamanho(nomeLeituraArquivo)];
-        for(int i = 1; i < arquivo.pegarTamanho(nomeLeituraArquivo) + 1; i++) {
-			Entrevistado novo = new Entrevistado(arquivo.lerArquivo(nomeLeituraArquivo, arquivo.pegarTamanho(nomeLeituraArquivo))[i]);
-            this.entrevistado[indice] = novo;
-            indice++;
+    public EntrevistadoVetor(Arquivo arquivo) {
+        int tamanhoArquivo = 0;
+        try {
+            tamanhoArquivo = arquivo.getTamanho(arquivo.getNomeLeitura());
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        entrevistado = new Entrevistado[tamanhoArquivo];
+        
+        for(int i = 1; i < tamanhoArquivo + 1; i++) {
+     
+            try{
+                Entrevistado novo = new Entrevistado(arquivo.getLinhas(arquivo.getNomeLeitura())[i]);
+                this.entrevistado[indice] = novo;
+                indice++;
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+
 		}
     } // fim do construtor EntrevistadoVetor
     
@@ -207,6 +220,17 @@ public class EntrevistadoVetor {
         vetor[j] = aux;
         return vetor;
     } // fim do método trocaOrdemString
+
+
+    
+    /** 
+     * @param arquivo
+     * @return String
+     */
+    public String getRelatorio(Arquivo arquivo) {
+        EntrevistadoInterface entrevistadoInterface = new EntrevistadoInterface();
+        return entrevistadoInterface.getRelatorio(arquivo);
+    }
 
     
 } // fim da classe EntrevistadoVetor
