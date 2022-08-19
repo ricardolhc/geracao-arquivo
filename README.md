@@ -41,13 +41,9 @@ Adicionalmente, a aplicação deve gerar um relatório em arquivo texto, legíve
 ### Acompanhamento
 
 * 28/07 - Enunciado disponibilizado no Moodle.
-<br>
 * 01/08 - Desenvolvimento da atividade nos grupos.
-<br>
 * 04/08 - Acompanhamento 1 (25%): por dupla com avaliação (classe Entrevistado, classe Entrevistados com a implementação e teste das estatísticas referentes aos itens 1 a 3).
-<br>
 * 08/08 - Acompanhamento 2 (25%): por dupla com avaliação (classe Entrevistados com a implementação e teste das estatísticas referentes aos itens 4 a 8, geração do relatório)
-<br>
 * 11/08 - Apresentação (50%): entrega e apresentação (funcionamento do programa, observando as estatísticas solicitadas e requisitos)
 
 ### Apresentação
@@ -65,7 +61,7 @@ A apresentação deve ser realizada no dia 11/08/2022 no horário da aula. Duran
 ( ) Outro
 
 <b>2. Qual é a sua idade?</b> (marque apenas uma resposta)
-
+<br>
 ( ) Até 15 anos
 <br>
 ( ) De 16 a 29 anos
