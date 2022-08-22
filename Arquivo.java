@@ -66,7 +66,6 @@ public class Arquivo {
 	
 	/** 
 	 * @param conteudo <i>String</i> que contem o conteudo que deseja gravar no novo arquivo.
-	 * @param nomeGravacao <i>String</i> que contem o nome do arquivo que será gerado.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
 	public void gravar(String conteudo) throws Exception {
@@ -84,7 +83,6 @@ public class Arquivo {
 
 	
 	/** 
-	 * @param nomeLeitura <i>String</i> que contem o nome de leitura do arquivo.
 	 * @return <i>int</i> que identifica o numero de linhas do arquivo.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
@@ -107,7 +105,6 @@ public class Arquivo {
 
 
 	/** 
-	 * @param nomeLeitura <i>String</i> que contem o nome de leitura do arquivo.
 	 * @return <i>String[]</i> que identifica, em cada linha, as informacoes respondidas por cada entrevistado.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
