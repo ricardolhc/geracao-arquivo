@@ -109,4 +109,66 @@ public class Entrevistado {
     } // fim do método getArea
 
     
+    /* MÉTODOS FACILITADORES */
+
+    /** 
+     * @param faixaEtaria <i>String</i> que identifica a faixa etaria a ser examinada.
+     * @return <i>boolean</i> que identifica se a faixa etaria do entrevistado é a mesma da faixa etaria do parametro.
+     */
+    public boolean isFaixaEtaria(String faixaEtaria) {
+        if(getFaixaEtaria().equals(faixaEtaria)) {
+            return true;
+        }
+        return false;
+    }
+
+    
+    /** 
+     * @param tecnologia <i>String</i> que identifica a tecnologia a ser examinada.
+     * @return <i>boolean</i> que identifica se a tecnologia do entrevistado é a mesma da tecnologia do parametro.
+     */
+    public boolean isTecnologia(String tecnologia) {
+        if(getTecnologia().equals(tecnologia)) {
+            return true;
+        }
+        return false;
+    }
+
+    
+    /** 
+     * @param area <i>String</i> que identifica a area a ser examinada.
+     * @return <i>boolean</i> que identifica se a area do entrevistado é a mesma da area do parametro.
+     */
+    public boolean isArea(String area) {
+        if(getArea().equals(area)) {
+            return true;
+        }
+        return false;
+    }
+
+    
+    /** 
+     * @param escolaridade <i>String</i> que identifica a escolaridade a ser examinada.
+     * @return <i>boolean</i> que identifica se a escolaridade do entrevistado é a mesma da escolaridade do parametro.
+     */
+    public boolean isEscolaridade(String escolaridade) {
+        if(getEscolaridade().equals(escolaridade)) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /** 
+     * @param sexo <i>String</i> que identifica a sexo a ser examinada.
+     * @return <i>boolean</i> que identifica se a sexo do entrevistado é a mesma da sexo do parametro.
+     */
+    public boolean isSexo(String sexo) {
+        if(getSexo().equals(sexo)) {
+            return true;
+        }
+        return false;
+    }
+
+    
 } // fim da classe Entrevistado

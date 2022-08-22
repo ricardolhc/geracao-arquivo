@@ -42,7 +42,7 @@ public class EntrevistadoVetor {
             }
 		}
     } // fim do construtor EntrevistadoVetor
-    
+
 
     /** 
      * @param sexo <i>String</i> que identifica o sexo que quer ser contado.
@@ -51,7 +51,7 @@ public class EntrevistadoVetor {
     public int getNumSexo(String sexo) {
         int quantidade = 0;
         for(int i = 0; i < entrevistado.length; i++) {
-            if(entrevistado[i].getSexo().equals(sexo)) {
+            if(entrevistado[i].isSexo(sexo)) {
                 quantidade++;
             }
         }
@@ -66,7 +66,7 @@ public class EntrevistadoVetor {
     public int getNumFaixaEtaria(String faixaEtaria) {
         int quantidade = 0;
         for(int i = 0; i < entrevistado.length; i++) {
-            if(entrevistado[i].getFaixaEtaria().equals(faixaEtaria)) {
+            if(entrevistado[i].isFaixaEtaria(faixaEtaria)) {
                 quantidade++;
             }
         }
@@ -81,14 +81,14 @@ public class EntrevistadoVetor {
     public int getNumEscolaridade(String escolaridade) {
         int quantidade = 0;
         for(int i = 0; i < entrevistado.length; i++) {
-            if(entrevistado[i].getEscolaridade().equals(escolaridade)) {
+            if(entrevistado[i].isEscolaridade(escolaridade)) {
                 quantidade++;
             }
         }
         return quantidade;
     } // fim do método getNumEscolaridade
 
-    
+
     /** 
      * @param area <i>String</i> que identifica a area que quer ser contada.
      * @return <i>int</i> que identifica a quantidade de pessoas que tem aquela area.
@@ -96,13 +96,13 @@ public class EntrevistadoVetor {
     public int getNumArea(String area) {
         int quantidade = 0;
         for(int i = 0; i < entrevistado.length; i++) {
-            if(entrevistado[i].getArea().equals(area)) {
+            if(entrevistado[i].isArea(area)) {
                 quantidade++;
             }
         }
         return quantidade;
     } // fim do método getNumArea
-    
+
 
     /** 
      * @return <i>int</i> que identifica o total de entrevistados adicionados.
@@ -120,7 +120,7 @@ public class EntrevistadoVetor {
     public int getNumFaixaEtariaTecnologia(String faixaEtaria, String tecnologia) {
         int quantidade = 0;
         for(int i = 0; i < entrevistado.length; i++) {
-            if(entrevistado[i].getFaixaEtaria().equals(faixaEtaria) && entrevistado[i].getTecnologia().equals(tecnologia)) {
+            if(entrevistado[i].isFaixaEtaria(faixaEtaria) && entrevistado[i].isTecnologia(tecnologia)) {
                 quantidade++;
             }
         }
@@ -219,8 +219,8 @@ public class EntrevistadoVetor {
 
 
     /** 
-     * @param arquivo
-     * @return String
+     * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
+     * @return <i>String</i> que identifica o relatório feito.
      */
     public String getRelatorio(Arquivo arquivo) {
         EntrevistadoInterface entrevistadoInterface = new EntrevistadoInterface();
