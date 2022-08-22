@@ -1,23 +1,23 @@
-
 /**
  * A classe <b>EntrevistadoInterface</b> e definida para a geracao de relatorios a partir dos dados obtidos.
  * @author Ricardo Luiz Hentges Costa
  * @since aug 2022
- * @version 1.0
+ * @version 1.1
  */
 
 public class EntrevistadoInterface {
 
     /**
-     * O atributo entrevistado, do tipo <i><b>EntrevistadoVetor</b></i>, e utilizado para retirar dados dos entrevistados para gerar o relatório. 
+     * O atributo entrevistadoVetor, do tipo <i><b>EntrevistadoVetor</b></i>, e utilizado para referenciar o vetor para gerar o relatório.
      */
-    EntrevistadoVetor entrevistadoVetor;
+    private EntrevistadoVetor entrevistadoVetor;
 
     /** 
      * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
      * @return <i>String</i> que contem o relatorio com as estatisticas solicitadas.
      */
     public String getRelatorio(Arquivo arquivo) {
+
         entrevistadoVetor = new EntrevistadoVetor(arquivo);
         String conteudoParaRelatorio = "";
 
@@ -84,7 +84,7 @@ public class EntrevistadoInterface {
         }
         return conteudo += "\n";
     } // fim do método getRelatorioEntrevistadosFaixaEtaria
- 
+
     
     /** 
      * @param escolaridade vetor de <i>String</i> que identifica as escolaridades presentes no questionario.
@@ -129,7 +129,7 @@ public class EntrevistadoInterface {
         String conteudo = "Faixa etária que mais utiliza Smartphone:";
 		return conteudo += entrevistadoVetor.getMaisUtilizaTecnologiaFaixaEtaria(faixaEtaria, "Smartphone") + "\n\n";
     } // fim do método getRelatorioEntrevistadosSmartphone
-   
+
     
     /** 
      * @param tecnologia vetor de <i>String</i> que identifica as tecnologias presentes no questionario.
@@ -170,4 +170,5 @@ public class EntrevistadoInterface {
         return caracterStr += caracter[0];
     } // fim do método pegarPrimeiroCaracterStr
     
+
 } // fim da classe EntrevistadoInterface

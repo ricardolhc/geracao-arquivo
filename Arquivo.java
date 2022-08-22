@@ -1,11 +1,10 @@
-
 import java.io.*;
 
 /**
  * A classe <b>Arquivo</b> e definida para a manipulacao de arquivos.
  * @author Ricardo Luiz Hentges Costa e Tales Schifelbein Soares
  * @since aug 2022
- * @version 1.0
+ * @version 1.1
  */
 
 public class Arquivo {
@@ -70,7 +69,7 @@ public class Arquivo {
 	 * @param nomeGravacao <i>String</i> que contem o nome do arquivo que será gerado.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
-	public void gravar(String conteudo, String nomeGravacao) throws Exception {
+	public void gravar(String conteudo) throws Exception {
 		//abre o arquivo para escrita
 		FileOutputStream outFile = new FileOutputStream(new File(nomeGravacao));
 		BufferedWriter buff = new BufferedWriter(new OutputStreamWriter(outFile, "UTF-8"));
@@ -89,8 +88,7 @@ public class Arquivo {
 	 * @return <i>int</i> que identifica o numero de linhas do arquivo.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
-	public int getTamanho(String nomeLeitura) throws Exception {
-		
+	public int getTamanho() throws Exception {
 		// declaração das variáveis        
 		String linha;
 		int linhas;
@@ -113,7 +111,7 @@ public class Arquivo {
 	 * @return <i>String[]</i> que identifica, em cada linha, as informacoes respondidas por cada entrevistado.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
-	public String[] getLinhas(String nomeLeitura) throws Exception {
+	public String[] getLinhas() throws Exception {
         // declaração das variáveis        
        	String[] linhas;
 		String linha;

@@ -1,9 +1,8 @@
-
 /**
  * A classe <b>EntrevistadoVetor</b> e definida para a manipulacao de um entrevistado atraves de um vetor.
  * @author Ricardo Luiz Hentges Costa e Tales Schifelbein Soares
  * @since aug 2022
- * @version 1.1
+ * @version 1.2
  */
 
 public class EntrevistadoVetor {
@@ -23,27 +22,24 @@ public class EntrevistadoVetor {
      * <b>Uso: </b>
      * EntrevistadoVetor entrevistadoVetor = new EntrevistadoVetor(new Arquivo("nomeGravacaoArquivo", "nomeLeituraArquivo"), "nomeLeituraArquivo");<br><br>
      * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
-     * @param nomeLeituraArquivo <i>String</i> que identifica o nome do arquivo para ser lido.
      */
     public EntrevistadoVetor(Arquivo arquivo) {
         int tamanhoArquivo = 0;
         try {
-            tamanhoArquivo = arquivo.getTamanho(arquivo.getNomeLeitura());
+            tamanhoArquivo = arquivo.getTamanho();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         entrevistado = new Entrevistado[tamanhoArquivo];
         
         for(int i = 1; i < tamanhoArquivo + 1; i++) {
-     
-            try{
-                Entrevistado novo = new Entrevistado(arquivo.getLinhas(arquivo.getNomeLeitura())[i]);
+            try {
+                Entrevistado novo = new Entrevistado(arquivo.getLinhas()[i]);
                 this.entrevistado[indice] = novo;
                 indice++;
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
-
 		}
     } // fim do construtor EntrevistadoVetor
     
@@ -92,7 +88,7 @@ public class EntrevistadoVetor {
         return quantidade;
     } // fim do método getNumEscolaridade
 
-
+    
     /** 
      * @param area <i>String</i> que identifica a area que quer ser contada.
      * @return <i>int</i> que identifica a quantidade de pessoas que tem aquela area.
@@ -222,7 +218,6 @@ public class EntrevistadoVetor {
     } // fim do método trocaOrdemString
 
 
-    
     /** 
      * @param arquivo
      * @return String

@@ -1,9 +1,8 @@
-
 /**
  * A classe <b>Entrevistado</b> e definida para a separacao dos dados do entrevistado.
  * @author Ricardo Luiz Hentges Costa e Tales Schifelbein Soares
  * @since aug 2022
- * @version 1.0
+ * @version 1.1
  */
 
 public class Entrevistado {
@@ -39,7 +38,7 @@ public class Entrevistado {
      */
     private String area;
 
-
+    
     /**
      * Construtor default da classe <b>Entrevistado</b>.<br>
      * <b>Uso: </b>
@@ -60,6 +59,7 @@ public class Entrevistado {
         this.tecnologia = dadoSeparado[4];
         this.area = dadoSeparado[5];
     } // fim do construtor Entrevistado
+
 
     /** 
      * @return <i>String</i> que contem a faixa etaria do entrevistado.
@@ -107,5 +107,6 @@ public class Entrevistado {
     public String getArea() { 
         return this.area; 
     } // fim do método getArea
+
     
 } // fim da classe Entrevistado
