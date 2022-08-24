@@ -141,6 +141,7 @@ public class EntrevistadoVetor {
             quantidadeFaixaEtaria[i] = getNumFaixaEtariaTecnologia(faixaEtaria[i], tecnologia);
         }
 
+        // ORDENAÇÃO DO MAIOR PARA O MENOR
         for(int i = 0; i < faixaEtaria.length; i++) {
             for(int j = i + 1; j < faixaEtaria.length; j++) {
                 if(quantidadeFaixaEtaria[i] < quantidadeFaixaEtaria[j]) {
@@ -172,6 +173,7 @@ public class EntrevistadoVetor {
             quantidadeTecnologia[i] = getNumFaixaEtariaTecnologia(faixaEtaria, tecnologia[i]);
         }
 
+        //ORDENAÇÃO DO MENOR PARA O MAIOR
         for(int i = 0; i < tecnologia.length; i++) {
             for(int j = i + 1; j < tecnologia.length; j++) {
                 if(quantidadeTecnologia[i] > quantidadeTecnologia[j]) {
