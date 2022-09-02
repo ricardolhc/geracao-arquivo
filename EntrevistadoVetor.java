@@ -25,16 +25,19 @@ public class EntrevistadoVetor {
      */
     public EntrevistadoVetor(Arquivo arquivo) {
         int tamanhoArquivo = 0;
+
         try {
             tamanhoArquivo = arquivo.getTamanho();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+
         entrevistado = new Entrevistado[tamanhoArquivo];
         
         for(int i = 1; i < tamanhoArquivo + 1; i++) {
             try {
                 Entrevistado novo = new Entrevistado(arquivo.getLinhas()[i]);
+
                 this.entrevistado[indice] = novo;
                 indice++;
             } catch (Exception e) {
@@ -136,13 +139,14 @@ public class EntrevistadoVetor {
     public String getMaisUtilizaTecnologiaFaixaEtaria(String[] faixaEtaria, String tecnologia) {
         String conteudo = "";
         int[] quantidadeFaixaEtaria = new int[faixaEtaria.length];
+        int i;
         
-        for(int i = 0; i < faixaEtaria.length; i++) {
+        for(i = 0; i < faixaEtaria.length; i++) {
             quantidadeFaixaEtaria[i] = getNumFaixaEtariaTecnologia(faixaEtaria[i], tecnologia);
         }
 
         // ORDENAÇÃO DO MAIOR PARA O MENOR
-        for(int i = 0; i < faixaEtaria.length; i++) {
+        for(i = 0; i < faixaEtaria.length; i++) {
             for(int j = i + 1; j < faixaEtaria.length; j++) {
                 if(quantidadeFaixaEtaria[i] < quantidadeFaixaEtaria[j]) {
                     faixaEtaria = trocaOrdemString(faixaEtaria, i, j);
@@ -151,7 +155,7 @@ public class EntrevistadoVetor {
             }
         }
 
-        int i = 0;
+        i = 0;
         do {
             conteudo += "\n" + faixaEtaria[i];
         } while(i + 1 != quantidadeFaixaEtaria.length && quantidadeFaixaEtaria[i] == quantidadeFaixaEtaria[++i]);
@@ -168,13 +172,14 @@ public class EntrevistadoVetor {
     public String getMenosUtilizaFaixaEtariaTecnologia(String faixaEtaria, String[] tecnologia) {
         String conteudo = "";
         int[] quantidadeTecnologia = new int[tecnologia.length];
+        int i;
         
-        for(int i = 0; i < tecnologia.length; i++) {
+        for(i = 0; i < tecnologia.length; i++) {
             quantidadeTecnologia[i] = getNumFaixaEtariaTecnologia(faixaEtaria, tecnologia[i]);
         }
 
         //ORDENAÇÃO DO MENOR PARA O MAIOR
-        for(int i = 0; i < tecnologia.length; i++) {
+        for(i = 0; i < tecnologia.length; i++) {
             for(int j = i + 1; j < tecnologia.length; j++) {
                 if(quantidadeTecnologia[i] > quantidadeTecnologia[j]) {
                     tecnologia = trocaOrdemString(tecnologia, i, j);
@@ -183,7 +188,7 @@ public class EntrevistadoVetor {
             }
         }
 
-        int i = 0;
+        i = 0;
         do {
             conteudo += "\n" + tecnologia[i];
         } while(i + 1 != quantidadeTecnologia.length && quantidadeTecnologia[i] == quantidadeTecnologia[++i]);

@@ -90,6 +90,7 @@ public class Arquivo {
 		// declaração das variáveis        
 		String linha;
 		int linhas;
+		
         //abre o arquivo para leitura
         FileInputStream inFile = new FileInputStream(new File(nomeLeitura));
         BufferedReader buff = new BufferedReader(new InputStreamReader(inFile, "UTF-8"));
@@ -97,6 +98,7 @@ public class Arquivo {
         //lê a primeira linha do arquivo (numero de linhas)
 		linha = buff.readLine();
 		linhas = Integer.parseInt(linha);
+
 		buff.close();
         inFile.close();
 
@@ -113,6 +115,7 @@ public class Arquivo {
        	String[] linhas;
 		String linha;
 		int nlinhas, i = 0;
+
         //abre o arquivo para leitura
         FileInputStream inFile = new FileInputStream(new File(nomeLeitura));
         BufferedReader buff = new BufferedReader(new InputStreamReader(inFile, "UTF-8"));
@@ -126,8 +129,9 @@ public class Arquivo {
 		//lê as demais linhas do arquivo
 		do {
 			linha = buff.readLine();
-			if(linha != null)
+			if(linha != null) {
 				linhas[i++] = linha; 
+			}	
 		} while(linha != null);
             
         //fecha o arquivo

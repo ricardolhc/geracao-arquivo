@@ -1,5 +1,8 @@
 # Geração de Arquivo
 
+## Resumo
+Trabalho em grupo com o objetivo de aplicar conceitos da programação anteriormente vistos.
+
 ## Objetivo do Repositório
 
 O objetivo deste repositório é arquivar e demonstrar a programação realizada para o segundo trabalho dado pelos professores da Unipampa (Universidade Federal do Pampa).
