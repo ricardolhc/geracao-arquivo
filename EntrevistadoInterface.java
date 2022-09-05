@@ -16,7 +16,7 @@ public class EntrevistadoInterface {
      * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
      * @return <i>String</i> que contem o relatorio com as estatisticas solicitadas.
      */
-    public String getRelatorio(Arquivo arquivo) {
+    public String getRelatorio(Arquivo arquivo) throws Exception {
 
         entrevistadoVetor = new EntrevistadoVetor(arquivo);
         String conteudoParaRelatorio = "";

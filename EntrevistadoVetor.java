@@ -23,26 +23,18 @@ public class EntrevistadoVetor {
      * EntrevistadoVetor entrevistadoVetor = new EntrevistadoVetor(new Arquivo("nomeGravacaoArquivo", "nomeLeituraArquivo"), "nomeLeituraArquivo");<br><br>
      * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
      */
-    public EntrevistadoVetor(Arquivo arquivo) {
+    public EntrevistadoVetor(Arquivo arquivo) throws Exception {
         int tamanhoArquivo = 0;
 
-        try {
-            tamanhoArquivo = arquivo.getTamanho();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
+        tamanhoArquivo = arquivo.getTamanho(); 
 
         entrevistado = new Entrevistado[tamanhoArquivo];
         
         for(int i = 1; i < tamanhoArquivo + 1; i++) {
-            try {
-                Entrevistado novo = new Entrevistado(arquivo.getLinhas()[i]);
+            Entrevistado novo = new Entrevistado(arquivo.getLinhas()[i]);
 
-                this.entrevistado[indice] = novo;
-                indice++;
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
+            this.entrevistado[indice] = novo;
+            indice++;
 		}
     } // fim do construtor EntrevistadoVetor
 
@@ -229,7 +221,7 @@ public class EntrevistadoVetor {
      * @param arquivo <i>objeto</i> da classe <b>Arquivo</b> que manipula arquivos.
      * @return <i>String</i> que identifica o relatório feito.
      */
-    public String getRelatorio(Arquivo arquivo) {
+    public String getRelatorio(Arquivo arquivo) throws Exception {
         EntrevistadoInterface entrevistadoInterface = new EntrevistadoInterface();
         return entrevistadoInterface.getRelatorio(arquivo);
     }
