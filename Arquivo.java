@@ -36,7 +36,7 @@ public class Arquivo {
 	 * @return <i>String</i> que contem o nome do arquivo para a gravacao.
 	 */
 	public String getNomeGravacao() {
-		return nomeGravacao;
+		return this.nomeGravacao;
 	} //fim do método getNomeGravacao
 
 	
@@ -44,7 +44,7 @@ public class Arquivo {
 	 * @return <i>String</i> que contem o nome do arquivo para a leitura.
 	 */
 	public String getNomeLeitura() {
-		return nomeLeitura;
+		return this.nomeLeitura;
 	} // fim do método getNomeLeitura
 
 	
@@ -68,15 +68,12 @@ public class Arquivo {
 	 * @param conteudo <i>String</i> que contem o conteudo que deseja gravar no novo arquivo.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
-	public void gravar(String conteudo) throws Exception {
-		//abre o arquivo para escrita
-		FileOutputStream outFile = new FileOutputStream(new File(nomeGravacao));
+	public void gravar(String conteudo) throws Exception {	
+		FileOutputStream outFile = new FileOutputStream(new File(this.nomeGravacao));
 		BufferedWriter buff = new BufferedWriter(new OutputStreamWriter(outFile, "UTF-8"));
 
-		//escreve no arquivo
 		buff.write(conteudo);
 
-		// fecha o arquivo
 		buff.close();  
 		outFile.close();
 	} // fim do método gravar
@@ -86,23 +83,18 @@ public class Arquivo {
 	 * @return <i>int</i> que identifica o numero de linhas do arquivo.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
-	public int getTamanho() throws Exception {
-		// declaração das variáveis        
-		String linha;
-		int linhas;
+	public int getTamanho() throws Exception {        
+		int numLinhas;
 		
-        //abre o arquivo para leitura
-        FileInputStream inFile = new FileInputStream(new File(nomeLeitura));
+        FileInputStream inFile = new FileInputStream(new File(this.nomeLeitura));
         BufferedReader buff = new BufferedReader(new InputStreamReader(inFile, "UTF-8"));
 
-        //lê a primeira linha do arquivo (numero de linhas)
-		linha = buff.readLine();
-		linhas = Integer.parseInt(linha);
+		numLinhas = Integer.parseInt(buff.readLine());
 
 		buff.close();
         inFile.close();
 
-		return linhas;
+		return numLinhas;
 	} // fim do método getTamanho
 
 
@@ -110,34 +102,24 @@ public class Arquivo {
 	 * @return <i>String[]</i> que identifica, em cada linha, as informacoes respondidas por cada entrevistado.
 	 * @throws Exception que contem, caso aconteca, um erro.
 	 */
-	public String[] getLinhas() throws Exception {
-        // declaração das variáveis        
-       	String[] linhas;
+	public String[] getLinhas() throws Exception { 
+       	String[] linhas = new String[getTamanho() + 1];
 		String linha;
-		int nlinhas, i = 0;
+		int i = 0;
 
-        //abre o arquivo para leitura
-        FileInputStream inFile = new FileInputStream(new File(nomeLeitura));
+		FileInputStream inFile = new FileInputStream(new File(this.nomeLeitura));
         BufferedReader buff = new BufferedReader(new InputStreamReader(inFile, "UTF-8"));
-
-        //lê a primeira linha do arquivo (numero de linhas)
-		linha = buff.readLine();
-		nlinhas = Integer.parseInt(linha);
-		linhas = new String[nlinhas+1];
-		linhas[i++] = linha;
-
-		//lê as demais linhas do arquivo
+		
 		do {
 			linha = buff.readLine();
 			if(linha != null) {
 				linhas[i++] = linha; 
-			}	
+			}
 		} while(linha != null);
             
-        //fecha o arquivo
         buff.close();
         inFile.close();
-		
+
 		return linhas;
     } // fim do método getLinhas
 

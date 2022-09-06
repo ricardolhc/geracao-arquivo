@@ -17,10 +17,10 @@ public class EntrevistadoInterface {
      * @return <i>String</i> que contem o relatorio com as estatisticas solicitadas.
      */
     public String getRelatorio(Arquivo arquivo) throws Exception {
-
-        entrevistadoVetor = new EntrevistadoVetor(arquivo);
         String conteudoParaRelatorio = "";
 
+        this.entrevistadoVetor = new EntrevistadoVetor(arquivo);
+        
         //final String[] REGIAO = {"Região Cidade Alta/Aguateiros", "Região Extremo Oeste", "Região Norte", "Região Sul",
         //                         "Região Extremo Leste", "Região Leste/Ibirapuitã", "Região Oeste/Regalado"};
         final String[] SEXO = {"Masculino", "Feminino", "Outro"};
@@ -31,7 +31,7 @@ public class EntrevistadoInterface {
 		final String[] AREA = {"Alimentação", "Educação", "Lazer", "Segurança", "Cultura", "Emprego", "Saúde", "Transporte"};
 
         /* ESTATISTICA 1 */
-        conteudoParaRelatorio += "Total de entrevistados: " + entrevistadoVetor.getTotalEntrevistados() + "\n\n";
+        conteudoParaRelatorio += "Total de entrevistados: " + this.entrevistadoVetor.getTotalEntrevistados() + "\n\n";
 
         /* ESTATISTICA 2 */
         conteudoParaRelatorio += getRelatorioEntrevistadosSexo(SEXO);
@@ -67,7 +67,7 @@ public class EntrevistadoInterface {
     public String getRelatorioEntrevistadosSexo(String[] sexo) {
         String conteudo = "Porcentagem entrevistados por sexo: \n";
         for(int i = 0; i < sexo.length; i++) {
-            conteudo += sexo[i] + ": " + doubleParaStringFormatado(calculoPorcentagem(entrevistadoVetor.getNumSexo(pegarPrimeiroCaracterStr(sexo[i]).toLowerCase()), entrevistadoVetor.getTotalEntrevistados())) + "%\n";
+            conteudo += sexo[i] + ": " + doubleParaStringFormatado(calculoPorcentagem(this.entrevistadoVetor.getNumSexo(pegarPrimeiroCaracterStr(sexo[i]).toLowerCase()), this.entrevistadoVetor.getTotalEntrevistados())) + "%\n";
         }
         return conteudo += "\n";
     } // fim do método getRelatorioEntrevistadosSexo
@@ -80,7 +80,7 @@ public class EntrevistadoInterface {
     public String getRelatorioEntrevistadosFaixaEtaria(String[] faixaEtaria) {
         String conteudo = "Quantidade de entrevistados por faixa etária: \n";
         for(int i = 0; i < faixaEtaria.length; i++) {
-            conteudo += faixaEtaria[i] + ": " + entrevistadoVetor.getNumFaixaEtaria(faixaEtaria[i]) + "\n";
+            conteudo += faixaEtaria[i] + ": " + this.entrevistadoVetor.getNumFaixaEtaria(faixaEtaria[i]) + "\n";
         }
         return conteudo += "\n";
     } // fim do método getRelatorioEntrevistadosFaixaEtaria
@@ -93,7 +93,7 @@ public class EntrevistadoInterface {
     public String getRelatorioEntrevistadosEscolaridade(String[] escolaridade) {
         String conteudo = "Percentual de entrevistados por grau de escolaridade: \n";
         for(int i = 0; i < escolaridade.length; i++) {
-            conteudo += escolaridade[i] + ": " + doubleParaStringFormatado(calculoPorcentagem(entrevistadoVetor.getNumEscolaridade(escolaridade[i]), entrevistadoVetor.getTotalEntrevistados())) + "%\n";
+            conteudo += escolaridade[i] + ": " + doubleParaStringFormatado(calculoPorcentagem(this.entrevistadoVetor.getNumEscolaridade(escolaridade[i]), this.entrevistadoVetor.getTotalEntrevistados())) + "%\n";
         }
         return conteudo += "\n";
     } // fim do método getRelatorioEntrevistadosEscolaridade
@@ -106,7 +106,7 @@ public class EntrevistadoInterface {
     public String getRelatorioEntrevistadosArea(String[] area) {
         String conteudo = "Número de entrevistados por área prioritária: \n";
         for(int i = 0; i < area.length; i++) {
-            conteudo += area[i] + ": " + entrevistadoVetor.getNumArea(area[i]) + "\n";
+            conteudo += area[i] + ": " + this.entrevistadoVetor.getNumArea(area[i]) + "\n";
         }
         return conteudo;
     } // fim do método getRelatorioEntrevistadosArea
@@ -117,7 +117,7 @@ public class EntrevistadoInterface {
      */
     public String getRelatorioEntrevistadosSuperiorCompleto() {
         String conteudo = "Entrevistados com pelo menos o ensino superior completo: ";
-		return conteudo += entrevistadoVetor.getNumEscolaridade("Ensino superior completo") + "\n\n";	
+		return conteudo += this.entrevistadoVetor.getNumEscolaridade("Ensino superior completo") + "\n\n";	
     } // fim do método getRelatorioEntrevistadosSuperiorCompleto
 
     
@@ -127,7 +127,7 @@ public class EntrevistadoInterface {
      */
     public String getRelatorioEntrevistadosSmartphone(String[] faixaEtaria) {
         String conteudo = "Faixa etária que mais utiliza Smartphone:";
-		return conteudo += entrevistadoVetor.getMaisUtilizaTecnologiaFaixaEtaria(faixaEtaria, "Smartphone") + "\n\n";
+		return conteudo += this.entrevistadoVetor.getMaisUtilizaTecnologiaFaixaEtaria(faixaEtaria, "Smartphone") + "\n\n";
     } // fim do método getRelatorioEntrevistadosSmartphone
 
     
@@ -137,7 +137,7 @@ public class EntrevistadoInterface {
      */
     public String getRelatorioTecnologiaMenosFaixaEtaria15(String[] tecnologia) {
         String conteudo = "Tecnologia menos utilizada com faixa etária até 15 anos:";
-		return conteudo += entrevistadoVetor.getMenosUtilizaFaixaEtariaTecnologia("Até 15 anos", tecnologia) + "\n\n";
+		return conteudo += this.entrevistadoVetor.getMenosUtilizaFaixaEtariaTecnologia("Até 15 anos", tecnologia) + "\n\n";
     } // fim do método getRelatorioTecnologiaMenosFaixaEtaria15
 
     
